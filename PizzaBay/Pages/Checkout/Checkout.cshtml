@@ -1,0 +1,20 @@
+﻿@page
+@model PizzaBay.Pages.Checkout.CheckoutModel
+@{
+}
+
+@{
+    var imagePath = "~/images/" + (@Model.ImageTitle + ".png");
+}
+
+<div class="align-content-center text-white">
+    <div class="col-4 mx-auto mb-5">
+        <h1>Ваше замовлення!</h1>
+        <img src=@imagePath class="border border-3 shadow-lg w-50" asp-append-version="true" />
+        <h3 class="mt-3">@Model.PizzaName</h3>
+        <br />
+        <h5>Сума замовлення: @Model.PizzaPrice грн.</h5>
+        <br />
+        <a class="btn btn-custom-main mt-1 mx-auto" asp-area="" asp-page="ThankYou">Підтвердити Замовлення</a>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+﻿@page
+@model PizzaBay.Pages.Forms.CustomPizzaModel
+@{
+}
+
+<div class="text-center container">
+    <h1 class="text-white">Створи Власну Піцу</h1>
+    <form method="post" class="mx-auto mt-5 pt-5 col-8 bg-gradient text-white">
+        <input type="text" asp-for="Pizza.PizzaName" placeholder="Дай ім'я своїй піці" />
+        <br />
+        <input type="checkbox" asp-for="Pizza.TomatoSauce" placeholder="Томатний соус" /> Томатний соус
+        <br />
+        <input type="checkbox" asp-for="Pizza.Cheese" placeholder="Сир" /> Сир
+        <br />
+        <input type="checkbox" asp-for="Pizza.Onion" placeholder="Цибуля" /> Цибуля
+        <br />
+        <input type="checkbox" asp-for="Pizza.Mushrooms" placeholder="Гриби" /> Гриби
+        <br />
+        <input type="checkbox" asp-for="Pizza.Pepper" placeholder="Перець" /> Перець
+        <br />
+        <input type="checkbox" asp-for="Pizza.Pineapple" placeholder="Ананас" /> Ананас
+        <br />
+        <input type="checkbox" asp-for="Pizza.Chicken" placeholder="Курка" /> Курка
+        <br />
+        <input type="checkbox" asp-for="Pizza.Salami" placeholder="Салямі" /> Салямі
+        <br />
+        <input type="checkbox" asp-for="Pizza.Peperoni" placeholder="Пепероні" /> Пепероні
+        <br />
+
+        <button class="btn btn-custom-main mt-1 mb-5" type="submit">Заказати Піцу</button>
+    </form>
+
+</div>

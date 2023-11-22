@@ -1,0 +1,50 @@
+﻿@page
+@model PizzaBay.Pages.PizzaModel
+@{
+    ViewData["Title"] = "Pizza page";
+}
+
+<div class="text-center">
+    <div class="mainText">
+        <h1 class="display-2">Піцерія Pizza Bay</h1>
+        <h4 class="">Справжня неаполітанська історія у серці Одеси.</h4>
+        <h4>Перед Вами представлено широкий асортимент піц на будь-який смак.</h4>
+        <p class="smallText"><i>Тільки одна піца за замовлення.</i></p>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-5 mt-5">
+                <div class="w-100 row makeYourOwnDiv">
+                    <div class="col-4">
+                        <img src="/images/pizza_create_cartoon.png" class="img-create" alt="PizzaCreate" />
+                    </div>
+                    <div class="col-8 align-items-center">
+                        <div class="align-middle makeYourOwnText text-white">
+                            <h3 style="text-align:left;">Збери власну піцу</h3>
+                            <p style="text-align:left;">Конструктор піци. Обирай сам!</p>
+                            <a class="btn btn-custom-secondary" style="float: left" asp-area="" asp-page="Forms/CustomPizza">Створити піцу</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h1 class="text-white mb-5 ">Піци</h1>
+            <br />
+            @foreach (var pizza in Model.pizzaDB)
+            {
+                var imagePath = "~/images/" + (pizza.ImageTitle + ".png");
+
+                <div class="col-4 mb-5 bg-opacity-50 card-pizza p-2">
+                    <a class=" mt-1" asp-area="" asp-page="Checkout/Checkout" asp-route-PizzaName="@pizza.PizzaName" asp-route-ImageTitle="@pizza.ImageTitle" asp-route-PizzaPrice="@pizza.FinalPrice">
+                        <img src="@imagePath" class="w-50 image-card rounded-circle" asp-append-version="true" />
+                    </a>
+                    <h5 class="text-white pt-2 text-center">@pizza.PizzaName</h5>
+                    <div class="text-white opacity-50">@pizza.FinalPrice грн.</div>
+                    <div class="text-white opacity-25">@pizza.Weight г.</div>
+                    <a class="btn btn-custom-secondary mt-1" asp-area="" asp-page="Checkout/Checkout" asp-route-PizzaName="@pizza.PizzaName" asp-route-ImageTitle="@pizza.ImageTitle" asp-route-PizzaPrice="@pizza.FinalPrice">Замовити</a>
+                    <br />
+                </div>
+            }
+        </div>
+    </div>
+</div>
